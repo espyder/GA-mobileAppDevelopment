@@ -1,50 +1,71 @@
-# Welcome to your Expo app 👋
+﻿# StudyFlow
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+StudyFlow is a student project for organizing study tasks and keeping track of what is left to finish. It is built with React Native, Expo, TypeScript, and React Navigation.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Home:** See the number of unfinished tasks and a focus-session information card.
+- **Tasks:** Add tasks and tap a task to mark it complete or incomplete.
+- **Settings:** View sample study reminder, focus mode, and break-time information.
 
-   ```bash
-   npm install
-   ```
+Tasks are stored in memory and reset when the app reloads. The focus-session and settings cards are currently display-only; timers, notifications, and editable settings are not implemented.
 
-2. Start the app
+## Clone and run
 
-   ```bash
-   npx expo start
-   ```
+Install Git and a Node.js LTS version compatible with the project's Expo SDK, including npm.
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Clone the repository and enter its folder:
 
 ```bash
-npm run reset-project
+git clone https://github.com/espyder/GA-app1-studyflow.git
+cd GA-app1-studyflow
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Install the dependencies using the committed lockfile:
 
-## Learn more
+```bash
+npm ci
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+Start the development server:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm start
+```
 
-## Join the community
+To run in a browser:
 
-Join our community of developers creating universal apps.
+```bash
+npm run web
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Other available platform commands:
+
+```bash
+npm run android
+npm run ios
+```
+
+Android requires a configured emulator or connected development device. The iOS simulator requires macOS and Xcode. To use Expo Go on a physical device, its supported Expo SDK must match this project's SDK; otherwise, use a compatible development build.
+
+## Project structure
+
+```text
+App.tsx                  App entry, bottom tabs, and shared task state
+screens/                 Home, Tasks, and Settings screens
+components/InfoCard.tsx   Reusable information card
+data/tasks.ts            Task type and initial sample tasks
+assets/                  Images, app icons, and splash-screen assets
+app.json                 Expo app configuration
+package.json             Dependencies and development commands
+```
+
+## Development
+
+Run the linter:
+
+```bash
+npm run lint
+```
+
+Commit source code, assets, configuration files, and `package-lock.json`. The `.gitignore` already excludes installed dependencies (`node_modules/`), local Expo state (`.expo/`), and build output (`dist/`). These are recreated locally as needed.
